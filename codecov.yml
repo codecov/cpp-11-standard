@@ -1,0 +1,3 @@
+ignore:
+  - "catch.cpp"
+  - "test_index.cpp"
