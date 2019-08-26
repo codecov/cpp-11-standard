@@ -1,5 +1,5 @@
 #!/bin/sh
 
-g++ -std=c++11 -o TestBinary -fprofile-arcs -ftest-coverage test_index.cpp
+g++ -std=c++11 -o TestBinary -fprofile-arcs -ftest-coverage test/test_index.cpp
 ./TestBinary
-gcov -o . test_index.cpp
+gcov -o . test/test_index.cpp
