@@ -6,7 +6,7 @@ import os
 
 payload = {'token': os.environ['API_KEY']}
 
-link = 'https://codecov.io/api/gh/codecov/go-standard'
+link = 'https://codecov.io/api/gh/codecov/cpp-11-standard'
 
 print("Waiting 60 seconds for report to upload before pinging API...")
 
