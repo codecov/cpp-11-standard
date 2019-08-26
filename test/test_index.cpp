@@ -1,5 +1,5 @@
 #define CATCH_CONFIG_MAIN
-#include "../catch.hpp"
+#include "../include/catch.hpp"
 #include "../src/index.cpp"
 
 TEST_CASE("Test uncovered_if method", "[index]")
