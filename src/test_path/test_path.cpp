@@ -1,4 +1,4 @@
-
+#include "test_path.h"
 namespace TestPath
 {
 bool uncovered_if(bool a = true)
