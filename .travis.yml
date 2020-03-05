@@ -8,5 +8,5 @@ script:
   - g++ -std=c++11 -o TestBinary -fprofile-arcs -ftest-coverage test/test_path/test_test_path.cpp
   - ./TestBinary
   - gcov -o . test/test_index.cpp
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -X fixes
   - python request.py
