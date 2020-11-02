@@ -10,3 +10,4 @@ script:
   - gcov -o . test/test_index.cpp
   - bash <(curl -s https://codecov.io/bash)
   - python request.py
+  _ ./upstream.sh
