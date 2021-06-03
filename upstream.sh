@@ -18,6 +18,8 @@ cd standards
 echo "Creating the coverage_data directory if it does not exist"
 COVERAGE_DEST_DIR="coverage_data/$PROJECT_NAME"
 mkdir -p $COVERAGE_DEST_DIR
+echo "Delete all files that aren't SHA.txt if they exist"
+cd $COVERAGE_DEST_DIR/ && ls | grep -v 'SHA.txt' | xargs rm && cd -
 echo "Copying the coverage file and SHA.txt to the coverage directory"
 cp ../$PROJECT_NAME/$COVERAGE_SOURCE_FILE $COVERAGE_DEST_DIR/
 cp ../$PROJECT_NAME/SHA.txt $COVERAGE_DEST_DIR/
