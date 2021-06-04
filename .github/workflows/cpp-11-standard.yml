@@ -1,4 +1,4 @@
-name: Github Actions Go Standard
+name: Github Actions C++ Standard
 on:
   push:
     branches:
@@ -35,5 +35,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         if: ${{ github.event_name == 'push'}}
-        run: |
-          ./upstream.sh
+        run: ./upstream.sh
