@@ -1,4 +1,4 @@
-name: Github Actions Go Standard
+name: Github Actions C++ Standard
 on:
   push:
     branches:
