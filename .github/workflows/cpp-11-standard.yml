@@ -7,7 +7,7 @@ on:
     branches:
       - master
 jobs:
-  standard-upload:
+  test-and-upstream:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -34,5 +34,10 @@ jobs:
       - name: Upstream to Standards
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          COVERAGE_SOURCE_FILE: ${{ secrets.COVERAGE_SOURCE_FILE }}
         if: ${{ github.event_name == 'push'}}
-        run: ./upstream.sh
+        run: |
+          wget --header "Authorization: token ${GH_TOKEN}" \
+          --header "Accept: application/vnd.github.v3.raw" \
+          https://api.github.com/repos/codecov/standards/contents/upstream.sh
+          bash upstream.sh
