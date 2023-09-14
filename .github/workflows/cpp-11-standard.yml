@@ -10,13 +10,13 @@ jobs:
   test-and-upstream:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 2
-      - name: Set up Python 3.9
+      - name: Set up Python 3.10
         uses: actions/setup-python@v2
         with:
-          python-version: '3.9'
+          python-version: '3.10'
       - name: Before Install
         run: |
           pip install requests
@@ -29,8 +29,10 @@ jobs:
           g++ -std=c++11 -o TestBinary -fprofile-arcs -ftest-coverage test/test_index.cpp
           ./TestBinary
           gcov -o . test/test_index.cpp
-          bash <(curl -s https://codecov.io/bash)
-          python request.py
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+      - name: Test coverage percentage
+        run: python request.py
       - name: Upstream to Standards
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
