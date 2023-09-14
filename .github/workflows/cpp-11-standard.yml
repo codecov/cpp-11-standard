@@ -26,6 +26,8 @@ jobs:
           gcov -o . test/test_index.cpp
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - name: Test coverage percentage
         run: python request.py
         env:
