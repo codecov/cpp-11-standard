@@ -2,10 +2,10 @@ name: Github Actions C++ Standard
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 jobs:
   test-and-upstream:
     runs-on: ubuntu-latest
