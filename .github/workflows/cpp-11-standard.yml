@@ -29,10 +29,16 @@ jobs:
           g++ -std=c++11 -o TestBinary -fprofile-arcs -ftest-coverage test/test_index.cpp
           ./TestBinary
           gcov -o . test/test_index.cpp
-          curl -Os https://uploader.codecov.io/latest/linux/codecov
-          chmod +x codecov
-          ./codecov
-          python request.py
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4-beta
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Test coverage percentage
+        run: python request.py
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          EXPECTED_COVERAGE: ${{ secrets.EXPECTED_COVERAGE }}
+
       - name: Upstream to Standards
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
