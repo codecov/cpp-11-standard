@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          token: ${{ secrets.STANDARDS_TOKEN }}
+        with:
           fetch-depth: 2
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
@@ -35,7 +37,7 @@ jobs:
           python request.py
       - name: Upstream to Standards
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.STANDARDS_TOKEN }}
           COVERAGE_SOURCE_FILE: ${{ secrets.COVERAGE_SOURCE_FILE }}
         if: ${{ github.event_name == 'push'}}
         run: |
