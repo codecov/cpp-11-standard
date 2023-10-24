@@ -1,10 +1,9 @@
-
 namespace Index {
     bool uncovered_if(bool a = true) {
         if (a)
             return false;
         else
-            return true;   
+            return true;
     }
 
     bool fully_covered() {
